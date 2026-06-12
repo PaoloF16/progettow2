@@ -68,7 +68,7 @@ public class CollectionGames{
                 PUZZLES
                 BOARDGAME
                 """);
-        GameType genre = GameType.valueOf(SCANNER.nextLine());
+            GameType genre = GameType.valueOf(SCANNER.nextLine());
         System.out.println("Insert a ID");
         long id = SCANNER.nextLong();
         Game myVideoGame = new VideoGame(title,releasedYear,price,platform,genre,id);
@@ -229,5 +229,4 @@ public class CollectionGames{
                 .orElse(0.0);
         System.out.println("The average price is: " + averagePrice);
     }
-
 }
