@@ -117,7 +117,7 @@ public class Application {
                 break;
             }
             switch (option){
-                case "1" -> stampaElementi();
+                case "1" ->stampaElementi();
                 case "2" ->checkerID();
                 case "3" ->searchID();
                 case "4" ->searchByprice();
@@ -126,8 +126,8 @@ public class Application {
                 case "7" ->printAllStatsGames();
                 case "8" ->printMaxPriceGame();
                 case "9" ->printAveragePrice();
-                case "10" -> setByID();
-                case "11" -> createGame();
+                case "10" ->setByID();
+                case "11" ->createGame();
                 default -> System.out.println("option non valid");
             }
         }
