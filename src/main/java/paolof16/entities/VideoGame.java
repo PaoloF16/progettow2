@@ -1,5 +1,7 @@
 package paolof16.entities;
 
+import static paolof16.entities.CollectionGames.collectionGames;
+
 public class VideoGame extends Game{
     private String platform;
     private int timeGame;
@@ -27,10 +29,10 @@ public class VideoGame extends Game{
 
     @Override
     public String toString() {
-        return "VideoGame{" +
-                "platform='" + platform + '\'' +
+        return super.toString()+"{" +
+                "genre=" + genre +
                 ", timeGame=" + timeGame +
-                ", genre=" + genre +
-                '}';
+                ", platform='" + platform + '\'' +
+                "} ";
     }
 }

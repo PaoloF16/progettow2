@@ -2,7 +2,9 @@ package paolof16.entities;
 
 import java.util.Random;
 
-public abstract class Game {
+import static paolof16.entities.CollectionGames.collectionGames;
+
+public  abstract class Game {
     private long id;
     private String title;
     private int publishYear;
@@ -12,10 +14,11 @@ public abstract class Game {
 
     public Game(String title,int publishYear,double price){
         Random myRandom = new Random();
-        this.id = myRandom.nextLong();
+        this.id = myRandom.nextLong(0,30);
         this.title = title;
         this.publishYear = publishYear;
         this.price = price;
+        collectionGames.add(this);
     }
 
     public long getId() {

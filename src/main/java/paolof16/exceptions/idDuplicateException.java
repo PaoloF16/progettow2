@@ -1,4 +1,4 @@
-package paolof16.entities;
+package paolof16.exceptions;
 
 public class idDuplicateException extends Exception {
     public idDuplicateException(String message){

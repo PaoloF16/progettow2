@@ -1,5 +1,7 @@
 package paolof16.entities;
 
+import static paolof16.entities.CollectionGames.collectionGames;
+
 public class BoardGame extends Game {
     private int numberPlayers;
     private int timeGame;
@@ -22,7 +24,7 @@ public class BoardGame extends Game {
 
     @Override
     public String toString() {
-        return "BoardGame{" +
+        return super.toString()+"BoardGame{" +
                 "numberPlayers=" + numberPlayers +
                 ", timeGame=" + timeGame +
                 '}';
