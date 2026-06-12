@@ -13,6 +13,8 @@ public class VideoGame extends Game{
         this.genre = genre;
     }
 
+
+
     public String getPlatform() {
         return platform;
     }

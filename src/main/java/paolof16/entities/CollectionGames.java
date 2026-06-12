@@ -22,7 +22,77 @@ public class CollectionGames{
         for (Game allGames : collectionGames){
             System.out.println(allGames.toString());
         }
+    }
+    public static void createGame(){
+        while (true){
+            System.out.println("""
+            Program menu:
+            1 - To create video Game
+            2 - To create board Game
+            q - Exit
+            """);
+            String option = SCANNER.nextLine();
+            switch (option){
+                case "1" -> createVideoGame();
+                case "2" -> createTableGame();
+                case "q","Q" -> {
+                    System.out.println("Exit program");
+                    System.out.println("Exiting update menu...");
+                    return;
+                }
+                default -> System.out.println("Option non valid");
+            }
+        }
 
+
+    }
+    public static void createVideoGame (){
+        System.out.println("Insert the name the videogame");
+        String title = SCANNER.nextLine();
+        System.out.println("Enter the year release number ");
+        int releasedYear = SCANNER.nextInt();
+        System.out.println("Enter a price");
+        double price = SCANNER.nextDouble();
+        System.out.println("Insert the platforms");
+        String platform = SCANNER.nextLine();
+        System.out.println("Insert a genre");
+        System.out.println("""
+                Choose the list
+                ACTION
+                STRATEGY
+                SHOOTERS
+                RPG
+                MOBA
+                CARDS
+                TRPG
+                PUZZLES
+                BOARDGAME
+                """);
+        GameType genre = GameType.valueOf(SCANNER.nextLine());
+        System.out.println("Insert a ID");
+        long id = SCANNER.nextLong();
+        Game myVideoGame = new VideoGame(title,releasedYear,price,platform,genre,id);
+        System.out.println("Game Created succesfully");
+        System.out.println(myVideoGame);
+    }
+    public  static void createTableGame(){
+        System.out.println("Insert the name the BoardGame");
+        String title = SCANNER.nextLine();
+        System.out.println("Enter the year release number ");
+        int releasedYear = SCANNER.nextInt();
+        System.out.println("Enter a price");
+        double price = SCANNER.nextDouble();
+        System.out.println("Insert the MIN # players");
+        int minplayers = SCANNER.nextInt();
+        System.out.println("Insert the MAX # players");
+        int maxplayers = SCANNER.nextInt();
+        System.out.println("Insert the time to play");
+        int timeplay = SCANNER.nextInt();
+        System.out.println("Insert a ID");
+        long id = SCANNER.nextLong();
+        Game myVideoGame = new BoardGame(title,releasedYear,price,minplayers,maxplayers,timeplay,id);
+        System.out.println("Game Created succesfully");
+        System.out.println(myVideoGame);
     }
 
     @Override
@@ -82,30 +152,55 @@ public class CollectionGames{
     public static void setByID(){
         System.out.println("Insert ID");
         long idToSet = SCANNER.nextLong();
+        SCANNER.nextLine();
+
         try{
             Game gametoUpdate = collectionGames.stream()
                     .filter(game -> game.getId() == idToSet)
                     .findFirst()
                     .orElseThrow(()-> new ElementNotFoundException("Game ID not found "));
-            System.out.println("Insert new title");
-            String newTitle = SCANNER.nextLine();
-            gametoUpdate.setTitle(newTitle);
-            System.out.println("Title updated succesfully");
-            SCANNER.nextLine();
-            System.out.println("Insert a new Price");
-            int newPrice = SCANNER.nextInt();
-            gametoUpdate.setPrice(newPrice);
-            System.out.println("Price updated succesfully");
-            System.out.println("Insert a publish year");
-            int newYear = SCANNER.nextInt();
-            gametoUpdate.setPublishYear(newYear);
-            System.out.println("Year updated succesfully");
 
 
+            while (true){
+                System.out.println("""
+            Program menu:
+            1 - To set new Title
+            2 - To set Year
+            3 - To set Price
+            q - Exit
+            """);
+
+                String option = SCANNER.next();
+                SCANNER.nextLine();
+                switch (option) {
+                    case "1" -> {
+                        System.out.println("Insert new title");
+                        String newTitle = SCANNER.nextLine();
+                        gametoUpdate.setTitle(newTitle);
+                        System.out.println("Title updated successfully");
+                    }
+                    case "2" -> {
+                        System.out.println("Insert new Year");
+                        int newYear = SCANNER.nextInt();
+                        gametoUpdate.setPublishYear(newYear);
+                        System.out.println("Year updated successfully");
+                    }
+                    case "3" -> {
+                        System.out.println("Insert a new Price");
+                        double newPrice = SCANNER.nextDouble(); // Recuerda usar double para precios
+                        gametoUpdate.setPrice(newPrice);
+                        System.out.println("Price updated successfully");
+                    }
+                    case "q", "Q" -> {
+                        System.out.println("Exiting update menu...");
+                        return;
+                    }
+                    default -> System.out.println("Option non valid");
+                }
+            }
         }
         catch (ElementNotFoundException e){
-            System.out.println("Id non Trovato" + e.getMessage());
-
+            System.out.println("Id non Trovato: " + e.getMessage());
         }
     }
 

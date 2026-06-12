@@ -87,13 +87,52 @@ public class Application {
         collectionGames.add(azul);
         //=========================================================================================================//
         //======================================================== RUN =================================================//
-
+        runProgram();
 
 
     }
     public static void runProgram(){
         System.out.println("Start the program");
-        while ()
+        stampaElementi();
+        while (true){
+            System.out.println("""
+                Program menu:
+                
+                1 - To show Games
+                2 - Check ID repeated
+                3 - Search by ID
+                4 - Search Games by Price
+                5 - Search Games by #Players
+                6 - Delete Game by #ID
+                7 - Print Stats Games
+                8 - Search Game Most Expensive
+                9 - Print Average Price
+                10 - Set a new Data
+                11 - Create Game
+                q - Exit
+                """);
+            String option = SCANNER.next();
+            if (option.equalsIgnoreCase("q")) {
+                System.out.println("Exit program");
+                break;
+            }
+            switch (option){
+                case "1" -> stampaElementi();
+                case "2" ->checkerID();
+                case "3" ->searchID();
+                case "4" ->searchByprice();
+                case "5" ->searchByplayers();
+                case "6" ->deleteID();
+                case "7" ->printAllStatsGames();
+                case "8" ->printMaxPriceGame();
+                case "9" ->printAveragePrice();
+                case "10" -> setByID();
+                case "11" -> createGame();
+                default -> System.out.println("option non valid");
+            }
+        }
+
 
     }
 }
+
