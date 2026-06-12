@@ -12,13 +12,11 @@ public  abstract class Game {
 
 
 
-    public Game(String title,int publishYear,double price){
-        Random myRandom = new Random();
-        this.id = myRandom.nextLong(0,30);
+    public Game(String title,int publishYear,double price,long id){
+        this.id = id;
         this.title = title;
         this.publishYear = publishYear;
         this.price = price;
-        collectionGames.add(this);
     }
 
     public long getId() {
@@ -43,7 +41,7 @@ public  abstract class Game {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", publishYear=" + publishYear +
-                ", price=" + price +
-                '}';
+                ", price=" + price + "$"+
+                '}' ;
     }
 }

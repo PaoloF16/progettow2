@@ -7,8 +7,8 @@ public class BoardGame extends Game {
     private int timeGame;
 
 
-    public BoardGame(String title, int publishYear, double price,int numberPlayers,int timeGame) {
-        super(title, publishYear, price);
+    public BoardGame(String title, int publishYear, double price,int numberPlayers,int timeGame,long id) {
+        super(title, publishYear, price,id);
         this.numberPlayers = numberPlayers;
         this.timeGame = timeGame;
 
@@ -26,7 +26,7 @@ public class BoardGame extends Game {
     public String toString() {
         return super.toString()+"BoardGame{" +
                 "numberPlayers=" + numberPlayers +
-                ", timeGame=" + timeGame +
+                ", timeGame=" + timeGame + "minutes"+
                 '}';
     }
 }

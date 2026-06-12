@@ -4,14 +4,12 @@ import static paolof16.entities.CollectionGames.collectionGames;
 
 public class VideoGame extends Game{
     private String platform;
-    private int timeGame;
     private GameType genre;
 
 
-    public VideoGame(String title, int publishYear, double price,String platform,int timeGame,GameType genre) {
-        super(title, publishYear, price);
+    public VideoGame(String title, int publishYear, double price,String platform,GameType genre,long id) {
+        super(title, publishYear, price,id);
         this.platform = platform;
-        this.timeGame = timeGame;
         this.genre = genre;
     }
 
@@ -23,15 +21,10 @@ public class VideoGame extends Game{
         return genre;
     }
 
-    public int getTimeGame() {
-        return timeGame;
-    }
-
     @Override
     public String toString() {
         return super.toString()+"{" +
                 "genre=" + genre +
-                ", timeGame=" + timeGame +
                 ", platform='" + platform + '\'' +
                 "} ";
     }
